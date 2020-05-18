@@ -6,7 +6,7 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: Build OpenWrt
+name: Build OpenWrt 只编译迅雷快鸟
 
 on:
   release:
@@ -98,7 +98,7 @@ jobs:
       run: |
         cd openwrt
         echo -e "$(nproc) thread compile"
-        make -j$(nproc) || make -j1 V=s
+        make -j$(nproc) || make package/lean/luci-app-xlnetacc/compile V=99
         echo "::set-output name=status::success"
 
     - name: Upload bin directory
